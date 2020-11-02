@@ -23,18 +23,19 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	else {
-		std::cout << "tutorial program to CMake using math functions."
+		std::cout << "tutorial program to CMake using "
 #ifdef USE_MYMATH
-			<< "using heron implementation"
-#endif
+			<< "my heron implementation."
+#else
+			<< "stdc math implementations."
+#endif	// USE_MYMATH
 			<< std::endl;
 
 #ifdef USE_MYMATH
 		const double res = mysqrt(std::atoi(argv[1]));
 #else
 		const double res = sqrt(std::atoi(argv[1]));
-#endif // USE_MYMATH
-
+#endif	// USE_MYMATH
 		std::cout << "sqrt(" << argv[1] << ") = " << res << std::endl;
 	}
 	return 0;  
